@@ -1,0 +1,95 @@
+<% include template/headeradmin %>
+<div class="col-sm-9 session">
+        <div class="row">
+                <div class="w-100 tieude-bang">
+                        <p class="chu-tieude tieumuc" ><i class="fa fa-plus-circle canh-tieude"></i>Add Product</p>
+                </div>
+            </div>
+    <div class="row">
+        <div class="add-img col-sm-12">
+            <p class="tieumuc"> Thumbnail Image</p>
+            <div class="row">
+                <div class="col-sm-3">
+                    <form id="upload-widget" method="post" action="/admin/uploadthumb" class="dropzone col-sm-12 content box"
+                        enctype="multipart/form-data">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="add-img col-sm-12">
+            <p class="tieumuc">Detail Images</p>
+            <div class="row">
+                <div class="col-sm-3">
+                    <form id="upload-widget" method="post" action="/admin/uploadimgs" class="dropzone col-sm-12 content box"
+                        enctype="multipart/form-data"></form>
+                </div>
+                <div class="col-sm-3">
+                    <form id="upload-widget" method="post" action="/admin/uploadimgs" class="dropzone col-sm-12 content box"
+                        enctype="multipart/form-data"></form>
+                </div>
+                <div class="col-sm-3">
+                    <form id="upload-widget" method="post" action="/admin/uploadimgs" class="dropzone col-sm-12 content box"
+                        enctype="multipart/form-data"></form>
+                </div>
+                <div class="col-sm-3">
+                    <form id="upload-widget" method="post" action="/admin/uploadimgs" class="dropzone col-sm-12 content box"
+                        enctype="multipart/form-data"></form>
+                </div>
+            </div>
+        </div>
+        <div class="add-img col-sm-12">
+            <p class="tieumuc"> Video</p>
+            <div class="row">
+                <div class="col-sm-3">
+                    <form id="upload-widget" method="post" action="/admin/uploadvideo" class="dropzone col-sm-12 content box"
+                        enctype="multipart/form-data">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 content">
+            <div class="row">
+                <form action="/admin/add-new-product" method="POST" name="form_register" class="col-sm-12">
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label for="" class="tieumuc">Name</label>
+                            <input type="text" name="pro_name" id="pro_name" class="form-control" placeholder="Product Name"
+                                aria-describedby="helpId">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="" class="tieumuc">Description</label>
+                            <textarea class="form-control" rows="5" id="pro_desc" name="pro_desc"></textarea>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="" class="tieumuc">Quantity</label>
+                            <input type="number" name="pro_qty" min="0" id="pro_qty" class="form-control" placeholder="Product Amount"
+                                aria-describedby="helpId">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="" class="tieumuc">Price</label>
+                            <input type="number" step="0.01" name="pro_price" id="pro_price" class="form-control" placeholder="Product Price"
+                                aria-describedby="helpId">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="" class="tieumuc">Size</label>
+                            <input type="number" step="0.01" name="size" id="size" class="form-control" placeholder="Product Size"
+                                aria-describedby="helpId">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="exampleFormControlSelect1" class="tieumuc">Category</label>
+                            <select class="form-control pick-cat" name="selectpicker" multiple>
+                                <% category.forEach(function(motphantu){ %>
+                                <option value="<%= motphantu._id %>">
+                                    <%= motphantu.cate_name %>
+                                </option>
+                                <% }) %>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-reg btn btn-success btn-block col-sm-6 offset-sm-3 bgr-btn">Add Product</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<% include template/footeradmin %>
